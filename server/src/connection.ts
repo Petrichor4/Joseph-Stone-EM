@@ -5,9 +5,9 @@ const { Pool } = pg;
 
 const pool = new Pool({
     user: process.env.DB_USER,
-    host: 'your_db_host',
-    database: 'your_db_name',
-    password: 'your_db_password',
+    host: 'localhost',
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASS,
     port: 5432, // default PostgreSQL port
 });
 const connectToDb = async () => {
