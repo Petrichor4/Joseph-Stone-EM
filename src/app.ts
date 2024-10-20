@@ -27,6 +27,18 @@ const startInquire = function() {
             
             break;
         case 'Add a new role':
+            inquirer.prompt([
+                {
+                    type: 'input',
+                    message: 'What role would you like to add?',
+                    name: 'addRole',
+                }
+            ]).then(async (answers) => {
+                const role = answers.addRole;
+                const query = `INSERT INTO employee_role (title) VALUES ('${role}')`;
+                await pool.query(query);
+                console.log(`Added ${role} to roles`);
+            })
             break;
         case 'Add a new employee':
             break;
