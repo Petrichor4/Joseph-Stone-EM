@@ -1,1 +1,3 @@
-SELECT employee_role.title as Title, employee_role.id, 
+SELECT employee_role.id, title, department_name AS department, salary FROM employee_role JOIN department ON employee_role.department_id = department.id;
+
+SELECT employee.id, employee.first_name, employee.last_name, title, department_name AS department, salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee JOIN employee_role ON employee.role_id = employee_role.id JOIN department ON employee_role.department_id = department.id LEFT JOIN employee manager ON employee.manager_id = manager.id;
