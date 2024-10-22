@@ -43,8 +43,6 @@ class Cli {
       const result = await pool.query(
         `SELECT ARRAY(SELECT title FROM employee_role)`
       );
-      console.log(result.rows);
-      console.log(result.rows[0]?.array);
       return result.rows[0]?.array || [];
     } catch (err) {
       console.error(err);
@@ -250,7 +248,7 @@ class Cli {
       .prompt([
         {
           type: "list",
-          message: "What employee woul you like to update?",
+          message: "What employee would you like to update?",
           choices: employees,
           name: "emName",
         },
